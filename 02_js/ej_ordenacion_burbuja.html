@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title> Mi primera página</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+	var array=[6,9,5,4,2,7,10,11,1];
+	
+	function ordenar(arrayNumeros){
+		for (var i = 0; i < arrayNumeros.length; i++) {
+			for (var a = 0; a < arrayNumeros.length; a++) {
+			if(arrayNumeros[a]> arrayNumeros[(a+1)]){
+				aux=arrayNumeros[a];
+				arrayNumeros[a]= arrayNumeros[(a+1)];
+				arrayNumeros[(a+1)]=aux;
+			}
+		 	}
+		}
+		return arrayNumeros;
+	}
+	console.log("Sin ordenar: " + array);
+	console.log("Ordenado: " + ordenar(array));
+	</script>
+
+</html>

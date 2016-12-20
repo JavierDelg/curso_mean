@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Mi primera página</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		var cadena = "Ponemos cualquier texto";
+		console.log("Longuitud: " + cadena.length);
+		console.log("Mayúsculas: " + cadena.toUpperCase());
+		console.log("Minúsculas: " + cadena.toLowerCase());
+
+		console.log("Caracter 4: " + cadena.charAt(4));
+		console.log("Caracter 4: " + cadena[4]);
+		
+		console.log("Index of t: " + cadena.indexOf("t"));
+		console.log("Index of t: " + cadena.lastIndexOf("t"));
+
+		console.log("Index of 9: " + cadena.substring(9));
+		console.log("Index of 9 ,4: " + cadena.substring(9, 4));
+
+		var arrayDeCadena = cadena.split(" ");
+
+		console.log("------ EMPEZANDO CON ARRAYS ------");
+		console.log("Palabra 2a: " + arrayDeCadena[1]);
+		console.log("Palabra 6a: " + typeof arrayDeCadena[6]);
+		arrayDeCadena[6] = 83;
+		console.log("Elemento 1: " + typeof arrayDeCadena[1]);
+		console.log("Elemento 6: " + typeof arrayDeCadena[6]);
+
+		console.log("Pop elemento 6: " + arrayDeCadena.pop());
+		console.log("Pop elemento 6 después: " + typeof arrayDeCadena[6]);
+
+		arrayDeCadena.push("otro");
+		arrayDeCadena.push(7);
+		arrayDeCadena.push(false);
+		arrayDeCadena.reverse();
+		console.log(arrayDeCadena.join(","));
+		var otraCadena = arrayDeCadena.join("*");
+		console.log("Join con *: " + otraCadena);
+
+
+	</script>
+</html>
