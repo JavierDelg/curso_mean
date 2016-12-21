@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculadora</title>
+	</head>
+	<body>
+		<form name="calculadora">
+			<input type="text" name="operando1" value="0" size="12">
+			<br>
+			<input type="text" name="operando2" value="0" size="12">
+			<br>
+			<input type="button" value="+" onclick="calcula('+')">
+			<input type="button" value="-" onclick="calcula('-')">
+			<input type="button" value="*" onclick="calcula('*')">
+			<input type="button" value="/" onclick="calcula('/')">
+			<br>
+			<input type="text" name="resultado" value="0" size="12">
+		</form>
+
+		<div id="texto">Operaciones realizadas: </div>
+	</body>
+	<script type="text/javascript">
+		function calcula(operando){
+			var oper_1 = document.calculadora.operando1.value;
+			var oper_2 = document.calculadora.operando2.value;
+
+			var resultado = eval(oper_1 + operando + oper_2);
+			document.getElementById('texto').innerHTML += "<br>" + oper_1 + operando + oper_2 + " = " + resultado ; 
+			document.calculadora.resultado.value= resultado;
+		}
+	</script>
+</html>

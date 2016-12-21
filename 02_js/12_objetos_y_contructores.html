@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculadora</title>
+	</head>
+	<body>
+		<div id="texto"></div>
+	</body>
+	<script type="text/javascript">
+		var div= document.getElementById("texto");
+
+		var arrayUno = new Array();
+
+		arrayUno[0]="Elemento 0 ";
+		arrayUno[1]="Elemento 1 ";
+		div.innerHTML += arrayUno + "<br>"; 
+
+		arrayUno["propiedad"]="Elemento prop";
+
+		arrayUno.toString = function (){
+			var cadena="";
+			for (var i = 0; i < arrayUno.length; i++) {
+			 cadena += arrayUno[i];
+			}
+			cadena += arrayUno.propiedad
+			return cadena;
+		}
+
+		div.innerHTML += arrayUno + "<br>"; 
+
+
+		var objetoUno = new Object();
+		objetoUno["prop1"] = "prop_1";
+		objetoUno.prop2 = "prop_2";
+
+		objetoUno.agregar= function (clave, valor){
+			this[clave]=valor;
+		}
+		objetoUno.toString= function(){
+			var cadena="";
+			for(p in this){
+				cadena += " Propiedad: " + this[p];
+			}
+			return cadena;
+		}
+
+		objetoUno.agregar("prop3","prop_3");
+		div.innerHTML += objetoUno + "<br>";
+
+	</script>
+</html>

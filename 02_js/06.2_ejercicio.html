@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> 6.2 Ejercicio</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		var num1=parseInt(prompt("Introduce un numero entero."));
+		var cadena;
+		function numeros(num1){
+			if(num1>0){
+				cadena= "es un numero positivo";
+			}else if(num1<0){
+				cadena= "es un numero negativo";
+			}else if( num1==0){
+				cadena= "el numero es 0";
+			}else{
+				cadena="es otra cosa";
+			}
+			return cadena;
+		}
+		alert("El numero es " + numeros(num1));
+
+	</script>
+</html>

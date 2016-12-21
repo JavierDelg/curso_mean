@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> 6.3 Ejercicio</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		var num1=parseInt(prompt("Introduce un 1er numero entero."));
+		var num2=parseInt(prompt("Introduce un 2o numero entero."));
+		var num3=parseInt(prompt("Introduce un 3er numero entero."));
+		
+		var numMayor;
+		var cadena;
+		if(num1>num2){
+			if(num1>num3){
+				numMayor= num1;
+			}else{
+				numMayor = num3;
+			}
+		}else{
+			if(num2>num3){
+				numMayor= num2;
+			}else{
+				numMayor = num3;
+			}
+		}
+		function numeros(num){
+			if(num>0){
+				cadena= " es un numero positivo";
+			}else if(num<0){
+				cadena= " es un numero negativo";
+			}else if( num==0){
+				cadena= " el numero es 0";
+			}else{
+				cadena=" es otra cosa";
+			}
+			return cadena;
+		}
+		alert(numMayor + numeros(numMayor));
+
+	</script>
+</html>
