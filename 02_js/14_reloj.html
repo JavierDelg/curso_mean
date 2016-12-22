@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Reloj </title>
+	</head>
+	<body onload="comenzarReloj()">
+		<form name="reloj" onsubmit="0">
+			<table>
+				<tr>
+					<td>La fecha es </td>
+					<td>La hora es </td>
+				</tr>
+
+				<tr>
+					<td><input type="text" name="laFecha" value="" size="12"></td>
+					<td><input type="text" name="laHora" value="" size="12"></td>
+				</tr>
+
+			</table>
+
+		</form>
+	</body>
+	<script type="text/javascript">
+		var timerID = null;
+		var timerFuncionando = false;
+
+		function pararReloj(){
+			if(timerFuncionando){
+				clearTimeout(timerID);
+			}
+			timerFuncionando = false;
+		}
+
+		function comenzarReloj(){
+			pararReloj();
+			obtenerFecha();
+			mostrarFechaHora();
+		}
+
+		function mostrarFechaHora(){
+			var ahora = new Date();
+
+			var horas = ahora.getHours();
+			var minutos = ahora.getMinutes();
+			var segundos = ahora.getSeconds();
+
+			var soloHora = ((horas >12) ? horas - 12 :horas);
+
+			var valorHora = "" + ((soloHora < 10) ? "0" : "" ) + soloHora;
+				valorHora += ((minutos < 10) ? ":0" : ":" ) + minutos;
+				valorHora += ((segundos < 10) ? ":0" : ":" ) + segundos;
+				valorHora += (horas >= 12) ? " P.M." : "A.M." ;
+
+			document.reloj.laHora.value = valorHora;	
+
+			//Hace una llamada a si misma cada 1 seg. Solo se llama una vez, pero como se llama asi mismo es infinito.
+			//Devuelve un id del timer que has creado. Asi podras pararlo con clearTimeout
+ 			timerID = setTimeout("mostrarFechaHora()", 1000);
+
+			timerFuncionando = true;
+		}	
+
+		function obtenerFecha(){
+			var Hoy = new Date();
+			var valorHoy = "" + (Hoy.getDate() + " /" + (Hoy.getMonth() + 1) + " /" + (Hoy.getYear() + 1900));
+			document.reloj.laFecha.value = valorHoy;
+		}
+	</script>
+</html>
