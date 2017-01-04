@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Georreferenciando</title>
+</head>
+
+<body>
+    <input type="button" value="Georreferenciando" onclick="queMeGeo()">
+    <div id="mapita"></div>
+</body>
+
+<script type="text/javascript">
+    function queMeGeo() {
+        if (navigator.geolocation) {
+            var opciones = {
+                timeout: 6000,
+                maximumAge: 600000,
+                enableHighAccuracy: true
+            }
+            navigator.geolocation.getCurrentPosition(
+                alRecibirGeo, errorEnGeo, opciones);
+        } else {
+            alert("No soporto la localización");
+        }
+    }
+
+    function alRecibirGeo(posicion) {
+        var latitude = posicion.coords.latitude;
+        var longitude = posicion.coords.longitude;
+        /* alert("latitude: " + posicion.coords.latitude +
+             ", longuitud: " + posicion.coords.longitude +
+             ", altitud: " + posicion.coords.altitude);*/
+        var imagenMapa = "http://maps.google.com/maps/api/staticmap?" +
+            "sensor=false&" +
+            "center= " + latitude + "," + longitude + "&" +
+            "zoom=14&" + "size=600x400&" +
+            "markers=color:red|label:P|" + latitude + ", " + longitude;
+
+        var mapita = document.getElementById("mapita");
+        mapita.innerHTML = "<img src='" + imagenMapa + "'>";
+    }
+
+    function errorEnGeo(error) {
+        alert("Error: " + error.message);
+    }
+</script>
+
+</html>

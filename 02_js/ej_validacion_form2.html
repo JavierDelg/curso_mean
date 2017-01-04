@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Form</title>
+</head>
+
+<body>
+    <form name="formulario" action="#" method="GET">
+        Mensaje: <input type="text" id="mensaje" minlength="1">
+        <br/> Email: <input type="email" id="email">
+        <br/>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+</body>
+
+<script type="text/javascript">
+    document.getElementById("email").addEventListener("invalid", function(event) {
+        if (event.target.validity.valid) {
+            event.preventDefault();
+        } else {
+            var Mensaje = document.getElementById("mensaje").value;
+            event.target.setCustomValidity(Mensaje);
+        }
+    });
+</script>
+
+</html>

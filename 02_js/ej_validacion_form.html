@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Form</title>
+</head>
+
+<body>
+    <form name="formulario" action="#" method="GET" onsubmit="return validarCampos()">
+        DNI: <input type="text" name="dni" id="dni" size="9" maxlength="9">
+        <br/> Telefono: <input type="text" name="telefono" id="telefono" size="9" maxlength="9">
+        <br/>
+        <input type="text" id="mensaje" minlength="1"><br/>
+        <input type="email" id="email"><br/>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+</body>
+<script type="text/javascript">
+    function validarCampos() {
+        var regTlf = /^[5-9]{1}\d{8}$/;
+        //Un numero del 5 al 9 y despues cualquier digito
+        var regDni = /^\d{8}[a-zA-Z]$/;
+        //8 digitos y una letra
+
+        var elmt1 = document.getElementById("telefono").value;
+        var elmt2 = document.getElementById("dni").value;
+        if (regTlf.test(elmt1) == false) {
+            alert("Campo de telefono no valido.");
+            return false;
+        } else if (regDni.test(elmt2) == false) {
+            alert("Campo de dni no valido");
+            return false;
+        } else {
+            //return true;
+        }
+
+
+    }
+</script>
+
+</html>

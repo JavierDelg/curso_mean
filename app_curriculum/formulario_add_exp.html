@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Form</title>
+</head>
+
+<body>
+    <form name="formulario" action="#" method="GET">
+        Empresa: <input type="text" id="empresa" name="empresa">
+        <br/> Cargo <input type="text" id="cargo" name="cargo">
+        <br/> Fecha inicio: <input type="date" id="fechaInicio" name="fechaInicio">
+        <br/> Fecha fin: <input type="date" id="fechaFin" name="fechaFin">
+        <br/> Localizacion: <input type="text" id="localizacion" name="localizacion">
+        <input type="button" value="Añadir" onclick="anhadir()">
+        <br/> JSON: <br/>
+        <textarea id="json" rows="5" cols="40"></textarea>
+        <br/><input type="button" value="Cargar" onclick="cargar()">
+
+    </form>
+
+    <div id="experiencias"></div>
+
+</body>
+
+<script type="text/javascript">
+    var experiencias = new Array();
+
+    function anhadir() {
+        var experiencia = new Object();
+        experiencia.empresa = document.getElementById("empresa").value;
+        experiencia.cargo = document.getElementById("cargo").value;
+        experiencia.fechaI = document.getElementById("fechaInicio").value;
+        experiencia.fechaF = document.getElementById("fechaFin").value;
+        experiencia.localizacion = document.getElementById("localizacion").value;
+
+        experiencias.push(experiencia);
+        document.getElementById("json").value = JSON.stringify(experiencias);
+
+    }
+
+
+    function cargar() {
+        var texto = document.getElementById("json").value;
+        var datos = JSON.parse(texto);
+
+
+        for (var i = 0; i < datos.length; i++) {
+            document.getElementById("experiencias").innerHTML += "<p>" + datos[i].empresa + "," + datos[i].cargo + "," + datos[i].fechaI + "," + datos[i].fechaF + "," + datos[i].localizacion + "</p>"
+        }
+    }
+</script>
+
+</html>
