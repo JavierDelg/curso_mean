@@ -14,9 +14,11 @@
         <br/> Fecha fin: <input type="date" id="fechaFin" name="fechaFin">
         <br/> Localizacion: <input type="text" id="localizacion" name="localizacion">
         <input type="button" value="Añadir" onclick="anhadir()">
+
         <br/> JSON: <br/>
         <textarea id="json" rows="5" cols="40"></textarea>
         <br/><input type="button" value="Cargar" onclick="cargar()">
+        <input type="button" value="Cargar localStorage" onclick="cargarLocalStorage()">
 
     </form>
 
@@ -26,6 +28,24 @@
 
 <script type="text/javascript">
     var experiencias = new Array();
+    var storage = localStorage;
+
+    window.onload = function() {
+        if (storage.getItem(1) == null) {
+            return;
+        } else {
+            var datosAlmacenados = storage.getItem(1);
+            document.getElementById("json").value = datosAlmacenados;
+            var datosLeidos = JSON.parse(datosAlmacenados);
+            experiencias = datosLeidos;
+            var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+            for (var i = 0; i < datosLeidos.length; i++) {
+                cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
+            }
+            cadena += "</table>"
+            document.getElementById("experiencias").innerHTML += cadena;
+        }
+    }
 
     function anhadir() {
         var experiencia = new Object();
@@ -36,19 +56,33 @@
         experiencia.localizacion = document.getElementById("localizacion").value;
 
         experiencias.push(experiencia);
-        document.getElementById("json").value = JSON.stringify(experiencias);
-
+        var datosJson = JSON.stringify(experiencias);
+        document.getElementById("json").value = datosJson;
+        storage.setItem("1", datosJson);
     }
 
 
     function cargar() {
         var texto = document.getElementById("json").value;
-        var datos = JSON.parse(texto);
-
-
-        for (var i = 0; i < datos.length; i++) {
-            document.getElementById("experiencias").innerHTML += "<p>" + datos[i].empresa + "," + datos[i].cargo + "," + datos[i].fechaI + "," + datos[i].fechaF + "," + datos[i].localizacion + "</p>"
+        var datosLeidos = JSON.parse(texto);
+        var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+        for (var i = 0; i < datosLeidos.length; i++) {
+            cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
         }
+        cadena += "</table>"
+        document.getElementById("experiencias").innerHTML += cadena;
+    }
+
+    function cargarLocalStorage() {
+        var datosAlmacenados = storage.getItem(1);
+        document.getElementById("json").value = datosAlmacenados;
+        var datosLeidos = JSON.parse(datosAlmacenados);
+        var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+        for (var i = 0; i < datosLeidos.length; i++) {
+            cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
+        }
+        cadena += "</table>"
+        document.getElementById("experiencias").innerHTML += cadena;
     }
 </script>
 
