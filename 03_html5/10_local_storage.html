@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Local Storage</title>
+</head>
+
+<body>
+    <input type="text" id="nombre" placeholder="Nombre"><input type="text" id="apellido" placeholder="Apellido">
+    <input type="button" value="Guardar" onclick="guardar()">
+    <br/>
+    <p id="datos">Nombre almacenado:Apellido almacenado:</p>
+    <input type="button" value="Cargar elementos" onclick="cargar()">
+
+</body>
+
+<script type="text/javascript">
+    var persona = new Object();
+    var storage = localStorage;
+
+    function guardar() {
+        var nombre = document.getElementById("nombre");
+        var apellido = document.getElementById("apellido");
+        persona.nombre = nombre.value;
+        persona.apellido = apellido.value;
+        var datos = JSON.stringify(persona);
+        storage.setItem("1", datos);
+
+        nombre.value = "";
+        apellido.value = "";
+    }
+
+    function cargar() {
+        var datosAlmacenados = storage.getItem(1);
+        var datosLeidos = JSON.parse(datosAlmacenados)
+        document.getElementById("datos").innerHTML = "Nombre almacenado: " + datosLeidos.nombre + ", Apellido almacenado: " + datosLeidos.apellido;
+    }
+</script>
+
+</html>

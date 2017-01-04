@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo API archivos</title>
+</head>
+
+<body>
+    <header>
+        <h1>Ejemplo API archivos</h1>
+        <h2>Lista de ficheros</h2>
+    </header>
+    <section>
+
+        <div id="zona_soltar">Suelta aqui </div>
+    </section>
+</body>
+<script>
+    function capturarCambioInput(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var ficheros = evt.dataTransfer.files;
+        var output = [];
+
+        for (var i = 0; f = ficheros[i]; i++) {
+            output.push(
+                "<li><strong>",
+                escape(f.name),
+                "</strong> (>",
+                f.type || "n/a", ") -",
+                f.size,
+                "bytes, ultima modificacion: ",
+                f.lastModifiedDate.toLocaleDateString(),
+                "</li>"
+            );
+        }
+        document.getElementById("list").innerHTML = "<ul>" + output.join() + "</ul>";
+    }
+    document.getElementById("files").addEventListener("change", capturarCambioInput, false);
+
+
+    function capturarEvtDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTranfer.dropEffect = "copy";
+    }
+    var zona_soltar = document.getElementById("zona_soltar");
+    zona_soltar.addEventListener("dragover", capturarEvtDragOver, false);
+    zona_soltar.addEventListener("drop", capturarEvtDragOver, false);
+</script>
+
+</html>
