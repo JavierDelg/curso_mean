@@ -8,17 +8,49 @@
 
 <body>
     <form name="formulario" action="#" method="GET">
-        Empresa: <input type="text" id="empresa" name="empresa">
-        <br/> Cargo <input type="text" id="cargo" name="cargo">
-        <br/> Fecha inicio: <input type="date" id="fechaInicio" name="fechaInicio">
-        <br/> Fecha fin: <input type="date" id="fechaFin" name="fechaFin">
-        <br/> Localizacion: <input type="text" id="localizacion" name="localizacion">
-        <input type="button" value="Añadir" onclick="anhadir()">
+        <table>
+            <tr>
+                <td> Empresa:</td>
+                <td><input type="text" id="empresa" name="empresa"></td>
+            </tr>
+            <tr>
+                <td> Cargo </td>
+                <td> <input type="text" id="cargo" name="cargo"></td>
+            </tr>
+            <tr>
+                <td> Fecha inicio:</td>
+                <td> <input type="date" id="fechaInicio" name="fechaInicio"> </td>
+            </tr>
+            <tr>
+                <td> Fecha fin: </td>
+                <td><input type="date" id="fechaFin" name="fechaFin"> </td>
+            </tr>
 
-        <br/> JSON: <br/>
+            <tr>
+                <td> Localizacion:</td>
+                <td> <input type="text" id="localizacion" name="localizacion"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td>
+                    <input type="button" value="Añadir" onclick="anhadir()"> </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="file" id="fileJson"></td>
+            </tr>
+            <tr>
+                <td> <input type="button" value="Cargar" onclick="cargar()"></td>
+                <td><input type="button" value="Cargar localStorage" onclick="cargarLocalStorage()"></td>
+            </tr>
+
+
+        </table>
+
+
+        JSON
         <textarea id="json" rows="5" cols="40"></textarea>
-        <br/><input type="button" value="Cargar" onclick="cargar()">
-        <input type="button" value="Cargar localStorage" onclick="cargarLocalStorage()">
 
     </form>
 
@@ -31,6 +63,8 @@
     var storage = localStorage;
 
     window.onload = function() {
+
+        document.getElementById("fileJson").addEventListener("change", leerArchivo, false);
         if (storage.getItem(1) == null) {
             return;
         } else {
@@ -38,7 +72,7 @@
             document.getElementById("json").value = datosAlmacenados;
             var datosLeidos = JSON.parse(datosAlmacenados);
             experiencias = datosLeidos;
-            var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+            var cadena = "<table><tr><th>Empresa</th><th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
             for (var i = 0; i < datosLeidos.length; i++) {
                 cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
             }
@@ -65,24 +99,45 @@
     function cargar() {
         var texto = document.getElementById("json").value;
         var datosLeidos = JSON.parse(texto);
-        var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+        var cadena = "<table><tr><th>Empresa</th><th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
         for (var i = 0; i < datosLeidos.length; i++) {
             cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
         }
         cadena += "</table>"
-        document.getElementById("experiencias").innerHTML += cadena;
+        document.getElementById("experiencias").innerHTML = cadena;
     }
 
     function cargarLocalStorage() {
         var datosAlmacenados = storage.getItem(1);
         document.getElementById("json").value = datosAlmacenados;
         var datosLeidos = JSON.parse(datosAlmacenados);
-        var cadena = "<table><tr>Empresa<th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
+        var cadena = "<table><tr><th>Empresa</th><th>Cargo</th><th>Fecha inicio</th><th>Fecha Fin</th><th>Localizacion</th></tr><tr>";
         for (var i = 0; i < datosLeidos.length; i++) {
             cadena += "<td>" + datosLeidos[i].empresa + "</td><td>" + datosLeidos[i].cargo + "</td><td>" + datosLeidos[i].fechaI + "</td><td>" + datosLeidos[i].fechaF + "</td><td>" + datosLeidos[i].localizacion + " </td></tr>"
         }
         cadena += "</table>"
-        document.getElementById("experiencias").innerHTML += cadena;
+        document.getElementById("experiencias").innerHTML = cadena;
+    }
+
+    function leerArchivo(event) {
+        var fileInput = document.getElementById("fileJson");
+        var fileDisplay = document.getElementById("json");
+        var file = fileInput.files[0];
+
+        var reader = new FileReader();
+        var datosNormales;
+        reader.onload = function(e) {
+            fileDisplay.innerHTML = reader.result;
+            datosNormales = JSON.parse(reader.result);
+            experiencias = datosNormales;
+
+
+            storage.setItem("1", JSON.stringify(datosNormales));
+        }
+        reader.readAsText(file);
+
+
+
     }
 </script>
 
