@@ -1,32 +1,26 @@
-var Figura = function (padreDom) {
-	
-	// Añadimos el FORM al padreDom
-	this.formCalc = document.createElement("form");
-	padreDom.appendChild(this.formCalc);
-	// Y los botones
-	this.alto = CreadorDOM.addInput(this.formCalc, "alto", "alto");
-	this.ancho = CreadorDOM.addInput(this.formCalc, "ancho", "ancho");
-	this.resultado = CreadorDOM.addInput(this.formCalc, "Resultado", "resultado");
-	// El botón de calcular
-	CreadorDOM.addButton(this, " Calcular Área " , this.calculaArea);
-	// Y la caja con el resultado
+calculaAreaRectangulo = function() {
+    this.resultado.value = parseInt(this.alto.value) *
+        parseInt(this.ancho.value);
+    this.metodoCompartido("EEEEEAH!");
 }
-var Rectangulo = function (padreDom) {
-	Figura.call(this, padreDom);
+calculaAreaTriangulo = function() {
+    this.resultado.value = parseInt(this.alto.value) *
+        parseInt(this.ancho.value) / 2;
+    this.metodoCompartido("OOOOOH!");
 }
-Rectangulo.prototype = Figura;
-
-Rectangulo.prototype.calculaArea = function() {
-	this.resultado.value =   parseInt(this.alto.value) 
-						   * parseInt(this.ancho.value);
+calculaAreaElipse = function() {
+    this.resultado.value = (parseInt(this.alto.value) / 2) *
+        (parseInt(this.ancho.value) / 2) * Math.PI;
+    this.metodoCompartido("OOOOOH!");
 }
 
-var Triangulo = function (padreDom) {
-	Figura.call(this, padreDom);
+function objetoCreadoCallback(nombre) {
+    alert("El objeto " + nombre + " ha sido creado.");
 }
-Triangulo.prototype = Figura;
 
-Triangulo.prototype.calculaArea = function() {
-	this.resultado.value =   parseInt(this.alto.value) 
-						   * parseInt(this.ancho.value) / 2;
-}
+// Rectangulo
+var Rectangulo = Figura.Heredar(calculaAreaRectangulo, "Rectangulo", objetoCreadoCallback);
+// Triangulo
+var Triangulo = Figura.Heredar(calculaAreaTriangulo, "Triangulo", objetoCreadoCallback);
+//Elipse
+var Elipse = Figura.Heredar(calculaAreaElipse, "Elipse", objetoCreadoCallback);
