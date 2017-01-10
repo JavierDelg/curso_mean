@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Reloj </title>
-	</head>
-	<body ">
-		<form name="reloj" onsubmit="0">
-			<table>
-				<tr>
-					<td>La fecha es </td>
-					<td>La hora es </td>
-				</tr>
+<head>
+    <meta charset="UTF-8">
+    <title>Reloj </title>
+</head>
 
-				<tr>
-					<td><input type="text" name="laFecha" value="" size="12"></td>
-					<td><input type="text" name="laHora" value="" size="12"></td>
-					<td><input type="text" name="laHora2" value="" size="12"></td>
-				</tr>
+<body>
+    <form name="reloj" onsubmit="0">
+        <table>
+            <tr>
+                <td>La fecha es </td>
+                <td>La hora es </td>
+            </tr>
 
-			</table>
+            <tr>
+                <td><input type="text" name="laFecha" value="" size="12"></td>
+                <td><input type="text" name="laHora" value="" size="12"></td>
+                <td><input type="text" name="laHora2" value="" size="12"></td>
+            </tr>
 
-		</form>
-	</body>
-	<script type="text/javascript">
-	
-/*---------------------------------- La Clase Nuestro Reloj ---------------------------------------------*/
+        </table>
 
-		function NuestroReloj(cajaTexto){
-			this.timerID = null;
-			this.timerFuncionando = false;
-			this.cajaTexto = cajaTexto; 
-			if(typeof NuestroReloj.prototype.listaRelojes == "undefined"){
-				 NuestroReloj.prototype.listaRelojes= new Array();
-			}
-			this.idReloj = NuestroReloj.prototype.listaRelojes.length;
-			NuestroReloj.prototype.listaRelojes.push(this);
-			
-		}
+    </form>
+</body>
+<script type="text/javascript">
+    /*---------------------------------- La Clase Nuestro Reloj ---------------------------------------------*/
 
-		NuestroReloj.prototype.comenzarReloj = function (){
-			this.pararReloj();
-			//this.obtenerFecha();
-			this.mostrarFechaHora(this);
-		}
-		
-		NuestroReloj.prototype.pararReloj = function (){
-			if(this.timerFuncionando){
-			clearTimeout(this.timerID);
-			}
-			this.timerFuncionando = false;
-		}
+    function NuestroReloj(cajaTexto) {
+        this.timerID = null;
+        this.timerFuncionando = false;
+        this.cajaTexto = cajaTexto;
+        if (typeof NuestroReloj.prototype.listaRelojes == "undefined") {
+            NuestroReloj.prototype.listaRelojes = new Array();
+        }
+        this.idReloj = NuestroReloj.prototype.listaRelojes.length;
+        NuestroReloj.prototype.listaRelojes.push(this);
 
-		NuestroReloj.prototype.mostrarFechaHora=function(){
-			var ahora = new Date();
+    }
 
-			var valorHora = "" + ahora.getHours() + ":" + ahora.getMinutes() + ":" +ahora.getSeconds();
+    NuestroReloj.prototype.comenzarReloj = function() {
+        this.pararReloj();
+        //this.obtenerFecha();
+        this.mostrarFechaHora(this);
+    }
 
-			this.cajaTexto.value = valorHora;	
+    NuestroReloj.prototype.pararReloj = function() {
+        if (this.timerFuncionando) {
+            clearTimeout(this.timerID);
+        }
+        this.timerFuncionando = false;
+    }
 
-	 		timerID = setTimeout("NuestroReloj.prototype.listaRelojes["+this.idReloj+"].mostrarFechaHora()", 1000);
+    NuestroReloj.prototype.mostrarFechaHora = function() {
+        var ahora = new Date();
 
-		  this.timerFuncionando = true;
-		}	
+        var valorHora = "" + ahora.getHours() + ":" + ahora.getMinutes() + ":" + ahora.getSeconds();
 
-/*------------------------------------ Creacion de los objetos y prueba ---------------------------------------------*/
+        this.cajaTexto.value = valorHora;
 
-		var Reloj1 = new NuestroReloj(document.reloj.laHora);
-		var Reloj2 = new NuestroReloj(document.reloj.laHora2);
-		Reloj1.comenzarReloj();
-		setTimeout("Reloj2.comenzarReloj()",3000);
-/*
-		NuestroReloj.prototype.obtenerFecha=function(){
-			var Hoy = new Date();
-			var valorHoy = "" + (Hoy.getDate() + " /" + (Hoy.getMonth() + 1) + " /" + (Hoy.getYear() + 1900));
-			document.reloj.laFecha.value = valorHoy;
-		}
-*/
-	
-	</script>
+        timerID = setTimeout("NuestroReloj.prototype.listaRelojes[" + this.idReloj + "].mostrarFechaHora()", 1000);
+
+        this.timerFuncionando = true;
+    }
+
+    /*------------------------------------ Creacion de los objetos y prueba ---------------------------------------------*/
+
+    var Reloj1 = new NuestroReloj(document.reloj.laHora);
+    var Reloj2 = new NuestroReloj(document.reloj.laHora2);
+    Reloj1.comenzarReloj();
+    setTimeout("Reloj2.comenzarReloj()", 3000);
+    /*
+    		NuestroReloj.prototype.obtenerFecha=function(){
+    			var Hoy = new Date();
+    			var valorHoy = "" + (Hoy.getDate() + " /" + (Hoy.getMonth() + 1) + " /" + (Hoy.getYear() + 1900));
+    			document.reloj.laFecha.value = valorHoy;
+    		}
+    */
+</script>
+
 </html>
