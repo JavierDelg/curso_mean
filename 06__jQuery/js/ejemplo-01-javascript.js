@@ -18,6 +18,10 @@ function inicializarEventos() {
     addEvent(botonjs1, 'click', presionarBotonConJavascript, false);
 }
 
+function presionarBotonConJQuery(e) {
+    alert("Botón js pulsado");
+}
+
 function presionarBotonConJavascript(e) {
     alert("Botón js pulsado");
 }

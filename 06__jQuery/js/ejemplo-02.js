@@ -1,20 +1,23 @@
 $(document).ready(inicializarEventos);
 
 function inicializarEventos() {
-    $("#titulo1").click(presionTitulo1);
-    $("#titulo2").click(presionTitulo2);
+    $("h1").click(presionTitulo);
+
 }
 
-function presionTitulo1() {
-    var mi_titulo = $(this);
-    mi_titulo.css("color", "#ff0000");
-    mi_titulo.css("background-color", "#ffff00");
-    mi_titulo.css("font-family", "Courier");
-}
+function presionTitulo(event) {
+    let mi_titulo = event.target;
+    let $mi_titulo = $(mi_titulo);
 
-function presionTitulo2() {
-    var mi_titulo = $(this);
-    mi_titulo.css("color", "#ffff00");
-    mi_titulo.css("background-color", "#ff0000");
-    mi_titulo.css("font-family", "Arial");
+    if (mi_titulo.id == "titulo1") {
+        alert("1")
+        $mi_titulo.css("color", "#ff0000");
+        $mi_titulo.css("background-color", "#ffff00");
+        $mi_titulo.css("font-family", "Courier");
+    } else {
+        alert("2")
+        $mi_titulo.css("color", "#ffff00");
+        $mi_titulo.css("background-color", "#ff0000");
+        $mi_titulo.css("font-family", "Arial");
+    }
 }
