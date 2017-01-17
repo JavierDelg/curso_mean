@@ -8,7 +8,7 @@ function initializeEvents() {
 function hideBox() {
     var len = $("#descripcion").children().length;
     for (var i = 0; i < len / 2; i++) {
-        $($("#descripcion").children()[i]).toggle("slow");
+        $($("#descripcion").children()[i]).toggle("slow", "swing");
     }
     for (var j = len; j > len - (len / 2); j--) {
         $($("#descripcion").children()[j]).toggle("fast");

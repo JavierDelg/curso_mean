@@ -2,7 +2,8 @@ $(document).ready(initializeEvents);
 
 function initializeEvents() {
     $("#parrafos p").each(markBySize);
-    $("p[id!='menor']").contextmenu(function() {
+    $("p[class!='menor']").contextmenu(function() {
+        event.preventDefault();
         alert($(this).html());
     })
 }
@@ -10,6 +11,6 @@ function initializeEvents() {
 function markBySize() {
     if ($(this).text().length < 100) {
         $(this).css("background-color", "#ff0");
-        $(this).attr("id", "menor");
+        $(this).attr("class", "menor");
     }
 }

@@ -12,34 +12,34 @@ function initializeEvents() {
 }
 
 function deleteAll() {
-    $("ul").empty();
+    $("ul:first").empty();
 }
 
 function restoreAll() {
     // dentro de <ul> me lo cargo y pongo lo que tenga dentro de html()
-    $("ul").html("<li>Primer item</li><li>Segundo item</li><li>Tercer item</li><li>Cuarto item</li>");
+    $("ul:first").html("<li>Primer item</li><li>Segundo item</li><li>Tercer item</li><li>Cuarto item</li>");
 }
 
 function addLastElement() {
-    $("ul").append("<li>Agrego un item al final</li>");
+    $("ul:first").append("<li>Agrego un item al final</li>");
 }
 
 function addFirstElement() {
-    $("ul").prepend("<li>Agrego un item al principio</li>");
+    $("ul:first").prepend("<li>Agrego un item al principio</li>");
 }
 
 function deleteLastElement() {
-    let position = $("li").length - 1;
-    let liToDelete = $("li").eq(position);
+    let position = $("ul:first li").length - 1;
+    let liToDelete = $("ul:first li").eq(position);
     liToDelete.remove();
 }
 
 function deleteFirstElement() {
-    $("li").eq(0).remove();
+    $("ul:first li").eq(0).remove();
 }
 
 function deleteFirstAndSecond() {
-    $("li:lt(2)").remove();
+    $("ul:first li:lt(2)").remove();
 }
 
 function deletePreAndLast() {
@@ -49,7 +49,8 @@ function deletePreAndLast() {
 }
 
 function filtrar() {
-    $("#buscar").empty();
+    $("#listaNueva").empty();
     var $filtro = $("#buscar").val();
     var a = $("li:contains(" + $filtro + ")").clone().appendTo("#listaNueva");
+    $("#buscar").val("");
 }

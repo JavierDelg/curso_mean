@@ -6,12 +6,12 @@ function initializeEvents() {
 }
 
 function hideBox() {
-    $("#descripcion").children().each(function(i, n) {
+    $("#descripcion").children().each(function(i, element) {
         if (i % 2 == 0) {
-            var $a = $(n);
-            $a.fadeOut("fast");
+            var $elemt = $(element);
+            //alert("indice " + i + " elemento " + $elemt.html());
+            $elemt.fadeOut("fast");
         }
-
     });
 }
 
