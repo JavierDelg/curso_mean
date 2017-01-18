@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html data-ng-app="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tercer ejemplo de AngularJS: Filtros</title>
+</head>
+
+<body data-ng-init="listaClientes=[
+        {nombre: 'Fran', ciudad: 'Vietnam/Cadiz'}, 
+        {nombre: 'Sergio', ciudad: 'Madrid'},
+        {nombre: 'Angel', ciudad: 'Madrid'},
+         {nombre: 'Julio', ciudad: 'Madrid'},
+          {nombre: 'Pedro', ciudad: 'Madrid'}
+        ];siEsPar=true">
+    <!-- Campo de texto para introducir nombre del cliente -->
+    busca cliente aquí:
+    <br/>
+    <input type="text" data-ng-model="miFiltroNombre.$" />
+    <br/> Escribe el nombre del cliente aquí:
+    <br/>
+    <input type="text" data-ng-model="miFiltroNombre.nombre" />
+    <br/>Escribe la ciudad del cliente aquí:
+    <br/>
+    <input type="text" data-ng-model="miFiltroNombre.ciudad" />
+    <br/> Si es par
+    <input type="checkbox" data-ng-model="siEsPar">
+    <div class="container">
+
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li data-ng-repeat="cliente in listaClientes | filter:miFiltroNombre | orderBy: 'nombre'" data-ng-show="siEsPar==$odd">
+                Cliente numero {{ $index }} es {{ cliente.nombre }} de {{cliente.ciudad}}</li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</body>
+
+</html>

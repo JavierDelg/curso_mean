@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html data-ng-app="miApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quinto ejemplo de AngularJS: Separando el controlador</title>
+</head>
+
+<body>
+    Escribe el nombre del cliente aquí:
+    <br/>
+    <div data-ng-controller="miControlador">
+        <input type="text" data-ng-model="nombreCliente" />
+        <input type="text" data-ng-model="ciudadCliente" />
+
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li data-ng-repeat="cliente in misClientes">
+                {{cliente.nombre | uppercase }} - {{cliente.ciudad | lowercase }} </li>
+        </ul>
+        </br>
+        <input type="button" value="addCliente()" data-ng-click="addCliente()" />
+        </br>
+    </div>
+
+    <div data-ng-controller="miControladorAnimales">
+        <input type="text" data-ng-model="nombreAnimal" />
+
+        <h3>Listado de Animales - {{varGlobal}}</h3>
+        <ul>
+            <li data-ng-repeat="animales in misAnimales">
+                {{animales.nombre | uppercase }} </li>
+        </ul>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="05_miApp.js"></script>
+
+</body>
+
+</html>
