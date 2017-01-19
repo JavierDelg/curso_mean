@@ -8,19 +8,20 @@
 </head>
 
 <body>
+
     Escribe el nombre del cliente aquí:
     <br/>
-    <div data-ng-controller="miControlador">
-        <input type="text" data-ng-model="nombreCliente" />
-        <input type="text" data-ng-model="ciudadCliente" />
+    <div data-ng-controller="miControlador as mC">
+        <input type="text" data-ng-model="mC.nombreCliente" />
+        <input type="text" data-ng-model="mC.ciudadCliente" />
 
         <h3>Listado de clientes</h3>
         <ul>
-            <li data-ng-repeat="cliente in misClientes">
+            <li data-ng-repeat="cliente in mC.misClientes">
                 {{cliente.nombre | uppercase }} - {{cliente.ciudad | lowercase }} </li>
         </ul>
         </br>
-        <input type="button" value="addCliente()" data-ng-click="addCliente()" />
+        <input type="button" value="addCliente()" data-ng-click="mC.addCliente()" />
         </br>
     </div>
 

@@ -1,15 +1,17 @@
-function miControlador($scope, $rootScope) {
-    $scope.misClientes = [
+function miControlador() {
+    var mC = this;
+
+    mC.misClientes = [
         { nombre: 'Fran', ciudad: 'Vietnam/Cadiz' },
         { nombre: 'Sergio', ciudad: 'Madrid' },
         { nombre: 'Angel', ciudad: 'Madrid' },
         { nombre: 'Julio', ciudad: 'Madrid' },
         { nombre: 'Pedro', ciudad: 'Madrid' }
     ];
-    $scope.addCliente = function() {
-        $scope.misClientes.push({ nombre: $scope.nombreCliente, ciudad: $scope.ciudadCliente })
-    }
-    $rootScope.varGlobal = "Adasdasdsda";
+    mC.addCliente = function() {
+            mC.misClientes.push({ nombre: mC.nombreCliente, ciudad: mC.ciudadCliente })
+        }
+        //$rootScope.varGlobal = "Adasdasdsda";
 }
 
 function miControladorAnimales($scope) {
