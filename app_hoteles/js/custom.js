@@ -29,4 +29,5 @@ function inicializarFecha() {
     data = y + "-" + m + "-" + d;
     console.log(data);
     inputFecha.value = data;
+    inputFecha.setAttribute("min", data);
 }
