@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,21 +20,64 @@
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>Ejemplos de botones</h1>
 
         <h2>Tipos</h2>
 
-        <button type="button">Boton</button>
-        <button type="button">Por defecto</button>
-        <button type="button">Primario</button>
-        <button type="button">Correcto!</button>
-        <button type="button">Informacion</button>
-        <button type="button">Advertencia</button>
-        <button type="button">Peligro</button>
-        <button type="button">Enlace</button>
+        <button class="btn" type="button">Boton</button>
+        <button class="btn btn-default" type="button">Por defecto</button>
+        <button class="btn btn-primary" type="button">Primario</button>
+        <button class="btn btn-success" type="button">Correcto!</button>
+        <button class="btn btn-info" type="button">Informacion</button>
+        <button class="btn btn-warning" type="button">Advertencia</button>
+        <button class="btn btn-danger" type="button">Peligro</button>
+        <button class="btn btn-link" type="button">Enlace</button>
 
         <br/>
+
+        <h2>Tipos activos</h2>
+
+        <button class="btn" type="button">Boton</button>
+        <button class="btn active btn-default " type="button">Por defecto</button>
+        <button class="btn active btn-primary" type="button">Primario</button>
+        <button class="btn active btn-success" type="button">Correcto!</button>
+        <button class="btn active btn-info" type="button">Informacion</button>
+        <button class="btn active btn-warning" type="button">Advertencia</button>
+        <button class="btn active btn-danger" type="button">Peligro</button>
+        <button class="btn active btn-link" type="button">Enlace</button>
+
+        <br/>
+
+        <h2>Tipos desactivados</h2>
+
+        <button class="btn" type="button" disabled>Boton</button>
+        <button class="btn active btn-default " type="button" disabled>Por defecto</button>
+        <button class="btn active btn-primary" type="button" disabled>Primario</button>
+        <button class="btn active btn-success" type="button" disabled>Correcto!</button>
+        <button class="btn active btn-info" type="button" disabled>Informacion</button>
+        <button class="btn active btn-warning" type="button" disabled>Advertencia</button>
+        <button class="btn active btn-danger" type="button" disabled>Peligro</button>
+        <button class="btn active btn-link" type="button" disabled>Enlace</button>
+
+        <br/>
+
+        <h2>Diferentes tamaños</h2>
+
+        <button type="button" class="btn btn-primary btn-lg">btn-lg</button>
+        <button type="button" class="btn btn-primary">btn-normal</button>
+        <button type="button" class="btn btn-primary btn-sm">btn-sm</button>
+        <button type="button" class="btn btn-primary btn-xs">btn-xs</button>
+
+        <br/>
+
+        <h2>Tamaño expandido</h2>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block">btn-lg</button>
+        <button type="button" class="btn btn-primary  btn-block">btn-normal</button>
+        <button type="button" class="btn btn-primary btn-sm  btn-block">btn-sm</button>
+        <button type="button" class="btn btn-primary btn-xs  btn-block">btn-xs</button>
+
         <br/>
     </div>
 </body>
