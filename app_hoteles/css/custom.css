@@ -1,25 +1,64 @@
-.bg {
-    background: url('/assets/example/bg_blueplane.jpg') no-repeat center center;
-    position: fixed;
-    width: 100%;
-    height: 350px;
-    /*same height as jumbotron */
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.jumbotron {
-    height: 350px;
-    color: black;
-    text-shadow: #444 0 1px 1px;
-    background: transparent;
-}
-
-.wide {
-    width: 100%;
-    height: 100%;
-    height: calc(100% - 1px);
-    background-image: url('https://c.stocksy.com/a/RcN300/z0/805779.jpg');
+article {
+    background-image: url('file:///C:/Users/Javi/Documents/curso_mean/app_hoteles/img/1.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+.row div {
+    margin-top: 1%;
+}
+
+.formReservas {
+    color: cyan;
+    padding: 2%;
+}
+
+.navbar a {
+    color: black;
+}
+
+.banner {
+    width: 100%;
+    height: 450px;
+    margin-bottom: 2%;
+    background-image: url('file:///C:/Users/Javi/Documents/curso_mean/app_hoteles/img/1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+
+/* Footer */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+body>.container {
+    padding: 60px 15px 0;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
 }
