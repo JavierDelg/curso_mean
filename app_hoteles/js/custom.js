@@ -13,7 +13,8 @@ $(document).ready(inicializarFecha);
 
 function inicializarFecha() {
 
-    var inputFecha = document.getElementById("fechaIni");
+    var inputFechaIni = document.getElementById("fechaIni");
+    var inputFechaFin = document.getElementById("fechaFin");
     var hoy = new Date(),
         d = hoy.getDate(),
         m = hoy.getMonth() + 1,
@@ -28,6 +29,7 @@ function inicializarFecha() {
 
     data = y + "-" + m + "-" + d;
     console.log(data);
-    inputFecha.value = data;
-    inputFecha.setAttribute("min", data);
+    inputFechaIni.value = data;
+    inputFechaIni.setAttribute("min", data);
+    inputFechaFin.setAttribute("min", data);
 }
