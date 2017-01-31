@@ -1,0 +1,15 @@
+{
+    "reservas": [{
+        "numHabitacion": 1,
+        "nombreCliente": "nombre",
+        "emailCliente": "correo@correo",
+        "fechaInicio": "31/01/2017",
+        "fechaFin": "03/02/2017"
+    }, {
+        "numHabitacion": 2,
+        "nombreCliente": "nombre2",
+        "emailCliente": "correo2@correo",
+        "fechaInicio": "31/01/2017",
+        "fechaFin": "02/02/2017"
+    }]
+}

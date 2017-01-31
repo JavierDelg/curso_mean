@@ -1,0 +1,27 @@
+{
+    "habitaciones": [{
+            "numero": 1,
+            "tipo": "simple"
+        },
+        {
+            "numero": 2,
+            "tipo": "doble"
+        },
+        {
+            "numero": 3,
+            "tipo": "doble"
+        },
+        {
+            "numero": 4,
+            "tipo": "doble"
+        },
+        {
+            "numero": 5,
+            "tipo": "simple"
+        },
+        {
+            "numero": 6,
+            "tipo": "simple"
+        }
+    ]
+}
