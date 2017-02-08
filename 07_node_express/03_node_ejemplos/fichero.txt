@@ -1,0 +1,9 @@
+Posteriormente podemos asociar un
+manejador de eventos a stdin, para el evento
+"data".
+Él produce que la lectura comience y una vez
+que se tenga algún dato, ejecutará la función
+callback.
+En la función callback recibiremos el chunk
+(buffer) de datos escritos en la consola hasta
+la pulsación de la tecla enter. 

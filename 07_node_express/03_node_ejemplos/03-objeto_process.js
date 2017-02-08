@@ -1,4 +1,4 @@
-process.on('exit', mensajeExit);
+//process.on('exit', mensajeExit);
 // Pedimos la memoria usada
 let mem = process.memoryUsage();
 // Calcularlo en Kb
@@ -10,23 +10,34 @@ let memKb = {
 }
 
 
+function primeraFuncion() {
+    console.log(memKb);
+    process.chdir("C:/Users/tarde/Documents/curso_mean/");
+}
 
-console.log(memKb);
+function segundaFuncion() {
+    console.log(process.cwd());
+    // Información del entorno de usario
+    console.log(process.env);
+}
 
-process.chdir("C:/Users/tarde/Documents/curso_mean/");
-process.exit();
-console.log(process.cwd());
-// Información del entorno de usario
-console.log(process.env);
 
-// Tiempo de uso de la CPU
-const startUsage = process.cpuUsage();
+function terceraFuncion() {
+    primeraFuncion();
+    segundaFuncion();
 
-const now = Date.now();
-while (Date.now() - now < 500);
-// Tiempo pasado en micro segundos
-console.log(process.cpuUsage(startUsage));
+    // Tiempo de uso de la CPU
+    const startUsage = process.cpuUsage();
+    const now = Date.now();
+    while (Date.now() - now < 500);
+    // Tiempo pasado en micro segundos
+    console.log(process.cpuUsage(startUsage));
+}
 
+terceraFuncion();
+
+
+/*
 function mensajeExit(codigo) {
     console.log('saliendo del proceso con código de salida ', codigo);
-}
+}*/
