@@ -23,6 +23,7 @@ let streamLectura2 = fs2.createReadStream("fichero.txt");
 let data2 = "";
 let buffer;
 
+streamLectura2.setEncoding("utf8");
 streamLectura2.on("readable", alCrearseStreamLectura);
 
 function alCrearseStreamLectura() {

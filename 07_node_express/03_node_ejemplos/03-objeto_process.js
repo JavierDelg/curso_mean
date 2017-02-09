@@ -1,40 +1,40 @@
-//process.on('exit', mensajeExit);
-// Pedimos la memoria usada
-let mem = process.memoryUsage();
-// Calcularlo en Kb
-let memKb = {
-    rss: parseInt(mem.rss / 1024),
-    heapTotal: parseInt(mem.heapTotal / 1024),
-    heapUsed: parseInt(mem.heapUsed / 1024),
-    external: parseInt(mem.external / 1024),
+"use strict";
+/*
+let fs = require("fs");
+let streamLectura = fs.createReadStream("PFRO.log");
+
+let data = "";
+
+streamLectura.on("data", cuandoLee);
+streamLectura.on("end", cuandoAcaba);
+
+function cuandoLee(chunk) {
+    console.log("Longuitud del buffer: " + chunk.length);
+    data += chunk;
+
 }
 
+function cuandoAcaba() {
+    console.log(data);
+}*/
 
-function primeraFuncion() {
-    console.log(memKb);
-    process.chdir("C:/Users/tarde/Documents/curso_mean/");
+let fs2 = require("fs");
+let streamLectura2 = fs2.createReadStream("fichero.txt");
+let data2 = "";
+let buffer;
+
+streamLectura2.setEncoding("utf8");
+streamLectura2.on("readable", alCrearseStreamLectura);
+
+function alCrearseStreamLectura() {
+    while ((buffer = streamLectura2.read()) != null) {
+        data2 += buffer;
+    }
 }
 
-function segundaFuncion() {
-    console.log(process.cwd());
-    // Información del entorno de usario
-    console.log(process.env);
-}
-
-
-function terceraFuncion() {
-    primeraFuncion();
-    segundaFuncion();
-
-    // Tiempo de uso de la CPU
-    const startUsage = process.cpuUsage();
-    const now = Date.now();
-    while (Date.now() - now < 500);
-    // Tiempo pasado en micro segundos
-    console.log(process.cpuUsage(startUsage));
-}
-
-terceraFuncion();
+streamLectura2.on("end", function() {
+    console.log(data2);
+});ceraFuncion();
 
 
 /*
