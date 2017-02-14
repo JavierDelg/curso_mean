@@ -4,7 +4,7 @@ var miExpress = require("express");
 // Instanciar 
 var app = miExpress();
 
-// Generamos las rutas
+// Generamos las rutas (ruteo)
 app.get("/", peticionPrincipal);
 app.get("/about", peticionAbout);
 
