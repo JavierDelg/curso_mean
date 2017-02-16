@@ -1,10 +1,9 @@
 var mongoose = require("mongoose");
-// definicion del esquema
 var Schema = mongoose.Schema;
 
 var SchemaBooking = new Schema({
     customer_id: {
-        type: Schema.Types.ObjectId,
+        type: String,
         required: [true, '{PATH} es obligatorio']
     },
     room_id: {
@@ -28,6 +27,4 @@ var SchemaBooking = new Schema({
     }
 });
 
-module.exports = {
-    Customer: mongoose.model("Customer", SchemaCustomer),
-}
+module.exports = mongoose.model("Reserva", SchemaBooking);
