@@ -6,6 +6,7 @@ objeto.getAll = function() {
     var Reservas = [];
     console.log("///////////////////////////");
     console.log(Reserva);
+
     Reserva.find({}).exec((error, reserva) => {
         console.log(reserva);
         Reservas.push(reserva);

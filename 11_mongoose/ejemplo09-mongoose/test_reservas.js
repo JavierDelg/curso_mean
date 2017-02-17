@@ -1,7 +1,9 @@
 var mocha = require("mocha");
 var mongoose = require("mongoose");
+var Reserva = require("./booking_schema");
 var booking = require("./booking")
 var assert = require("assert");
+
 
 describe("Prueba1", function() {
     it("save reservas", function(done) {
