@@ -13,6 +13,14 @@ objeto.getAll = function(cb) {
     });
 
 }
+objeto.getReserva = function(customer_id, cb) {
+    Reserva.find({
+        "customer_id": customer_id
+    }).exec((error, reserva) => {
+        console.log(reserva);
+        cb(error, reserva);
+    });
+}
 
 objeto.saveReserva = function(reserva, callback) {
     Reserva = new Reserva(reserva)
