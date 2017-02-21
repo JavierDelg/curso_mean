@@ -12,11 +12,6 @@ router.get("/all", function(req, res, next) {
         }
         res.render('reservas', { reservas: reservas });
     });
-    //console.log("-/-/-/-/-/-/-RESERVAS-/-/-/-/-/-");
-    //  console.log(a);
-
-    // res.render('reservas', { reservas: a[i] });
-
 });
 
 router.get("/:Customerid", function(req, res, next) {
@@ -24,10 +19,7 @@ router.get("/:Customerid", function(req, res, next) {
     reservas.getReserva(req.params.Customerid, function(error, reservas) {
         res.render('reservas', { reservas: reservas });
     });
-    //console.log("-/-/-/-/-/-/-RESERVAS-/-/-/-/-/-");
-    //  console.log(a);
-
-    // res.render('reservas', { reservas: a[i] });
-
 });
+
+
 module.exports = router;
