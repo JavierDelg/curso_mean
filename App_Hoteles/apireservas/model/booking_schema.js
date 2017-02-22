@@ -59,6 +59,5 @@ var SchemaBooking = new Schema({
 });
 
 module.exports = {
-    booking: mongoose.model("Reserva", SchemaBooking);
-
+    booking: mongoose.model("Reserva", SchemaBooking)
 }

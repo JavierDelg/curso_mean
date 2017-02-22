@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 mongoose.connect("localhost:27017/bd_hoteles")
-var R = require("./booking_schema");
+var r = require("./booking_schema");
 var Reserva = r.booking;
 var objeto = {};
 objeto.getAll = function(cb) {
@@ -14,6 +14,14 @@ objeto.getReserva = function(customer_id, cb) {
         "customer_id": customer_id
     }).exec((error, reserva) => {
         cb(error, reserva);
+    });
+}
+
+objeto.getReservaByDate = function(fecha1, fecha2, callback) {
+    Reserva.find({
+        "check_date": { $gte: new Date(fecha1), $lte: new Date(fecha2) }
+    }).exec((error, reserva) => {
+        callback(error, reserva);
     });
 }
 

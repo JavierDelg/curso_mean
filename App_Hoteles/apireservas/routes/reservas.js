@@ -21,5 +21,12 @@ router.get("/:Customerid", function(req, res, next) {
     });
 });
 
+router.get("/:fech1/:fecha2", function(req, res, next) {
+
+    reservas.getReservaByDate(req.params.fecha2, req.params.fecha2, function(error, reservas) {
+        res.render('reservas', { reservas: reservas });
+    });
+});
+
 
 module.exports = router;
