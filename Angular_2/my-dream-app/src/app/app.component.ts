@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 
 class Room{
   _id:any;
-  type:boolean
+  type:string
   numero: number;
-  constructor(_id:any,numero:number ,type:boolean){
+  constructor(_id?:any,numero?:number ,type?:string){
     this._id=_id;
     this.numero=numero;
-    this.type = type;
+    this.type= type;
   }
 
   toString():string{
-    return  this._id + " " + this.numero + " " + ((this.type) ? "Doble" : "Simple");
+    return  this._id + " " + this.numero + " " + this.type;
   }
 }
 
@@ -27,14 +27,15 @@ class Hotel{
   }
 }
 
-var room1= new Room(null,101,true);
-var room2= new Room(null,102,false);
-var room3= new Room(null,103,false);
+var room1= new Room(1,101,"Simple");
+var room2= new Room(2,102,"Doble");
+var room3= new Room(3,103,"Simple");
 var hotel = new Hotel();
 
 hotel.saveRoom(room1);
 hotel.saveRoom(room2);
 hotel.saveRoom(room3);
+
 
 @Component({
   selector: 'app-root',
@@ -47,19 +48,13 @@ export class AppComponent {
 
   title = "Habitaciones";
   hotel1 = [room1, room2, room3];
-  hotel2 = hotel;
-  room;
-
-  onSelect(index){
-      alert(index);
-      let room= this.hotel1[index];
-      console.log(this.room);
+  hotel2 = hotel; 
+  
+room = new Room();
+  onSelect(room){
+     console.log(room);
+     this.room=room; 
   }
 
-  updateRoom(room){
-    
-   console.log(room);
-   
-  }
   
 }

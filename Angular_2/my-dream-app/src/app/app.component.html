@@ -2,14 +2,13 @@
     {{title}}
 </h1>
 <div>
-    <input type="text" [ngModel]="room.id" placeholder="_id">
-    <input type="text" [ngModel]="room.numero" placeholder="numero">
-    <input type="text" [ngModel]="room.tipo" placeholder="type">
-    <input type="button" value="Añadir" (click)="updateRoom(room)">
+    <input type="text" [(ngModel)]="room._id" placeholder="id">
+    <input type="text" [(ngModel)]="room.numero" placeholder="numero">
+    <input type="text" [(ngModel)]="room.type" placeholder="type">
 </div>
 <!-- id.value, numero.value,tipo.value -->
 <ul>
-    <li *ngFor="let room of hotel1;let i = index" (click)="onSelect(i)"> {{room}}</li>
+    <li *ngFor="let room of hotel1;" (click)="onSelect( room)"> {{room}}</li>
 </ul>
 <p>Hotel 2</p>
 

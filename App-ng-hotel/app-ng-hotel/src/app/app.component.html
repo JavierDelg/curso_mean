@@ -1,0 +1,105 @@
+<div class="container">
+
+    <!-- Header de la pagina -->
+    <header class="page-header">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Desplegar navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Node Hoteles</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="active"><a href="#">Reservas</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                    <li>
+                        <a href="#"> </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <div>
+        <h2>Reservas</h2>
+    </div>
+    <article>
+
+        <div class="row ">
+
+            <!-- Formulario reservas -->
+            <div class="col-lg-6 col-xs-12 formContainer">
+
+                <form class="form-horizontal formReservas" role="form">
+                    <div class="form-group">
+                        <label for="nombre" class="col-lg-2 col-xs-2 control-label">Nombre</label>
+                        <div class="col-lg-6 col-xs-11">
+                            <input type="text" [(ngModel)]="reserva1.nombre" name="nombre" class="form-control" id="nombre" placeholder="Nombre">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="email " class="col-lg-2 col-xs-2  control-label ">Email</label>
+                        <div class="col-lg-6 col-xs-11">
+                            <input type="email " [(ngModel)]="reserva1.email" name="email" class="form-control " id="email " placeholder="Email ">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-lg-2 col-xs-2 control-label" for="tipo" control-label>Tipo</label>
+                        <div class="col-lg-6  col-xs-11">
+                            <select class="form-control " [(ngModel)]="reserva1.tipo" name="tipo" id="tipo">
+                                <option>Simple</option>
+                                <option>Doble</option>
+						  </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="fechaIni " class="col-lg-2 control-label ">Fecha inicio</label>
+                        <div class="col-lg-6  col-xs-11 ">
+                            <input type="date" [(ngModel)]="reserva1.fecha" name="fecha" class="form-control " id="fechaIni ">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="col-lg-offset-2 col-lg-10 ">
+                            <button type="button " class="btn btn-primary " (click)="reservar()">Reservar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-xs-12 resultaldo">
+                <div class="form-group">
+                    <div class=" col-lg-offset-2 col-lg-8">
+                        <p><strong>Habitaciones disponibles:</strong></p>
+                        <ul>
+                            <li>Simples: 1</li>
+                            <li>Dobles: 0</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </article>
+    <hr>
+
+</div>
+<footer class="footer ">
+    <div class="container ">
+        <p class="text-muted ">Node Hoteles 2017.</p>
+    </div>
+</footer>
