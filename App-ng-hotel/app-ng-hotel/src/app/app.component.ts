@@ -4,8 +4,8 @@ class Reserva{
   nombre:string;
   email:string;
   tipo:string;
-  fecha:string;
-  constructor(n?:string,e?:string,t?:string,f?:string){
+  fecha:any;
+  constructor(n?:string,e?:string,t?:string,f?:any){
     this.nombre=n;
     this.email=e;
     this.tipo=t;
@@ -13,7 +13,7 @@ class Reserva{
   }
 
   toString():string{
-    return this.nombre + this.email + this.tipo + this.fecha;
+    return this.nombre + " " + this.email + " " + this.tipo + " " + this.fecha;
   }
 
 
@@ -27,8 +27,16 @@ class Reserva{
 export class AppComponent {
   title = 'app works!';
   reserva1= new Reserva();
-  reservas(){
+  ArrayReservas = [];
+  reservar(){
     console.log(this.reserva1);
+    this.ArrayReservas.push(this.reserva1);
+    this.reserva1= new Reserva();
+    
+  }
+  borrar(i){
+      console.log(i);
+      this.ArrayReservas.splice(i);
   }
 
 }

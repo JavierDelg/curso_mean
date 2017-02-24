@@ -33,7 +33,10 @@ objeto.saveReserva = function(reserva, callback) {
         } else {
             console.log("Guardada reserva con id: " +
                 Reserva._id);
-            callback(error, dato);
+            
+        }
+        if(typeof callback != "undefined"){
+        	callback(error, dato);
         }
     })
 }

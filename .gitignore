@@ -22,3 +22,4 @@ app_hoteles/api/bd_hotel/journal/WiredTigerPreplog.0000000002
 app_hoteles/api/bd_hotel/mongod.lock
 app_hoteles/api/bd_hotel/sizeStorer.wt
 app_hoteles/api/bd_hotel/storage.bson
+app_node_hoteles/db_hotels/

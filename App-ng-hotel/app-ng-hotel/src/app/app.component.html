@@ -82,6 +82,7 @@
             <div class="col-lg-6 col-xs-12 resultaldo">
                 <div class="form-group">
                     <div class=" col-lg-offset-2 col-lg-8">
+
                         <p><strong>Habitaciones disponibles:</strong></p>
                         <ul>
                             <li>Simples: 1</li>
@@ -89,6 +90,14 @@
 
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12 ">
+                <div class=" col-lg-offset-2 col-lg-8">
+                    <p> <strong>Reservas realizadas: </strong></p>
+                    <ul>
+                        <li *ngFor="let r of ArrayReservas;let i = index"> {{r.toString()}} <span class="glyphicon glyphicon-remove" (click)="borrar(i)"></span></li>
+                    </ul>
                 </div>
             </div>
 
