@@ -25,3 +25,4 @@ app_hoteles/api/bd_hotel/storage.bson
 app_node_hoteles/db_hotels/
 app_node_hoteles/app-client-ng/node_modules
 app_node_hoteles/app-server-api/node_modules
+node_modules/
