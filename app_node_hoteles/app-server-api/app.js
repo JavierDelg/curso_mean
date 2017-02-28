@@ -9,6 +9,9 @@ var index = require('./routes/index');
 var customers = require('./routes/api/customers');
 
 var app = express();
+/* access-control-allow-origin */
+var cors = require('cors');
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

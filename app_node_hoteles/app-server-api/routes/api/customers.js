@@ -29,7 +29,7 @@ router.post("/", function(req, res) {
     let customer = jsonCustomer;
     model.grabar(customer, function(error, customer) {
         if (error) {
-            console.log("No se ha leido de la BBDD");
+            console.log("No se ha grabado de la BBDD");
         } else {
             res.json(customer);
         }
