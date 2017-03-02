@@ -6,18 +6,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './index/index.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
-  { path: 'reservas', component: ReservasComponent },
-   { path: 'index', component: IndexComponent }
+   { path: 'reservas', component: ReservasComponent },
+   { path: 'admin', component: AdminComponent },
+   { path: '',   redirectTo: '/reservas', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ReservasComponent,
-    IndexComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
